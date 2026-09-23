@@ -1,0 +1,141 @@
+:root {
+  --navy: #002D72;
+  --hopkins-blue: #68ACE5;
+  --mist: #e8eef5;
+  --page: #f5f7fa;
+  --ink: #222;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+body > div {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 16px 16px 28px;
+}
+
+.shield {
+  display: block;
+  width: 50px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease, background 0.16s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 45, 114, 0.22);
+  filter: brightness(1.06);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 45, 114, 0.16);
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 15px 10px;
+}
+
+.btn-secondary {
+  background: var(--hopkins-blue);
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 15px 10px;
+}
+
+.btn-ghost {
+  background: var(--mist);
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 8px;
+}
+
+.btn-nav {
+  background: var(--mist);
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 8px;
+}
+
+.btn-nav.active,
+.btn-nav[aria-current="page"] {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-nav.active:hover,
+.btn-primary:hover {
+  filter: brightness(1.12);
+}
+
+h2 {
+  color: var(--navy);
+}
+
+details {
+  margin: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 15px;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details summary + div {
+  padding: 12px 8px 4px 18px;
+  color: #333;
+}
+
+a {
+  color: var(--navy);
+}
+
+@media (max-width: 640px) {
+  body > div { padding: 10px 8px 20px; }
+}
