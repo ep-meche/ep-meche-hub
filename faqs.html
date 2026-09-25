@@ -5,6 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ME FAQs & Advising Guide</title>
   <link rel="stylesheet" href="assets/hub.css" />
+  <style>
+    .faq-category {
+      margin: 0 0 14px 0;
+      padding: 0;
+      border: 1px solid #d7e1ec;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 45, 114, 0.06);
+    }
+    .faq-category > summary {
+      padding: 15px 18px;
+      background: #e8eef5;
+      color: #002D72;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .faq-category > summary::before {
+      font-size: 12px;
+    }
+    .faq-category[open] > summary {
+      background: #002D72;
+      color: #fff;
+    }
+    .faq-category-content {
+      padding: 8px 18px 12px 18px;
+      background: #fff;
+    }
+    .faq-category-content details {
+      margin: 0;
+      padding: 12px 0;
+    }
+    .faq-category-content details:first-child {
+      padding-top: 8px;
+    }
+    .faq-category-content details:last-child {
+      border-bottom: 0;
+      padding-bottom: 6px;
+    }
+  </style>
 </head>
 <body>
 <div>
@@ -38,7 +78,9 @@
     <p style="margin:0;">Browse the questions below for guidance on course planning, registration, focus areas, academic resources, and graduation. When a question involves an official policy or deadline, use the linked EP resource for the most current information.</p>
   </div>
 
-  <h2>Degree Planning & Focus Areas</h2>
+  <details class="faq-category">
+    <summary>Degree Planning & Focus Areas</summary>
+    <div class="faq-category-content">
 
   <details>
     <summary>Do I need to declare a Mechanical Engineering focus area?</summary>
@@ -64,8 +106,12 @@
     <summary>Is 535.641 Mathematical Methods for Engineers required in the first semester?</summary>
     <div>535.641 Mathematical Methods for Engineers is commonly used in early degree planning, but students should follow their individual degree plan and any advising guidance that applies to their situation. Use the <a href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/" target="_blank" rel="noopener">Degree Requirements</a> page and your degree audit to confirm what is needed.</div>
   </details>
+    </div>
+  </details>
 
-  <h2>Courses & Registration</h2>
+  <details class="faq-category">
+    <summary>Courses & Registration</summary>
+    <div class="faq-category-content">
 
   <details>
     <summary>How do I register for courses?</summary>
@@ -96,8 +142,12 @@
     <summary>Can I take courses outside of Mechanical Engineering?</summary>
     <div>Review the published <a href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/" target="_blank" rel="noopener">Degree Requirements</a> before planning courses outside the program. If you are unsure whether a course can be applied to your degree, contact the program team before registering.</div>
   </details>
+    </div>
+  </details>
 
-  <h2>Academic Policies & Resources</h2>
+  <details class="faq-category">
+    <summary>Academic Policies & Resources</summary>
+    <div class="faq-category-content">
 
   <details>
     <summary>Where can I find EP academic policies?</summary>
@@ -118,8 +168,12 @@
     <summary>Where can I find my degree audit?</summary>
     <div>Use <a href="https://stellic.jhu.edu/" target="_blank" rel="noopener">Stellic</a> to review your degree audit and monitor your academic progress.</div>
   </details>
+    </div>
+  </details>
 
-  <h2>Thesis, Independent Study & Special Planning</h2>
+  <details class="faq-category">
+    <summary>Thesis, Independent Study & Special Planning</summary>
+    <div class="faq-category-content">
 
   <details>
     <summary>Can I complete a thesis as part of my master's degree?</summary>
@@ -135,8 +189,12 @@
     <summary>What is an Independent Study?</summary>
     <div>An Independent Study is a faculty-supervised academic experience built around an approved topic or area of study. Students should work with the appropriate faculty member and confirm the registration and approval process before enrolling.</div>
   </details>
+    </div>
+  </details>
 
-  <h2>Graduation & Student Support</h2>
+  <details class="faq-category">
+    <summary>Graduation & Student Support</summary>
+    <div class="faq-category-content">
 
   <details>
     <summary>How do I apply for graduation?</summary>
@@ -151,6 +209,8 @@
   <details>
     <summary>Where can I connect with other Mechanical Engineering students?</summary>
     <div>Join the <a href="https://www.linkedin.com/groups/13042174/" target="_blank" rel="noopener">Mechanical Engineering LinkedIn group</a> to connect with fellow students and stay engaged with the broader program community.</div>
+  </details>
+    </div>
   </details>
 
   <div style="background:#e8eef5;padding:16px 18px;border-radius:8px;margin-top:28px;">
