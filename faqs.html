@@ -4,8 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ME FAQs & Advising Guide</title>
+
   <link rel="stylesheet" href="assets/hub.css" />
+
   <style>
+    /* FAQ category boxes */
     .faq-category {
       margin: 0 0 14px 0;
       padding: 0;
@@ -15,6 +18,7 @@
       overflow: hidden;
       box-shadow: 0 2px 6px rgba(0, 45, 114, 0.06);
     }
+
     .faq-category > summary {
       padding: 15px 18px;
       background: #e8eef5;
@@ -22,215 +26,688 @@
       font-size: 16px;
       font-weight: 700;
     }
+
     .faq-category > summary::before {
       font-size: 12px;
     }
+
     .faq-category[open] > summary {
       background: #002D72;
       color: #fff;
     }
+
     .faq-category-content {
       padding: 8px 18px 12px 18px;
       background: #fff;
     }
-    .faq-category-content details {
+
+    /* Individual FAQ questions */
+    .faq-question {
       margin: 0;
       padding: 12px 0;
+      border-bottom: 1px solid #e0e0e0;
     }
-    .faq-category-content details:first-child {
-      padding-top: 8px;
-    }
-    .faq-category-content details:last-child {
+
+    .faq-question:last-child {
       border-bottom: 0;
       padding-bottom: 6px;
     }
+
+    .faq-question > summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #002D72;
+      font-size: 15px;
+      list-style: none;
+    }
+
+    /*
+      IMPORTANT:
+      The > selector ensures only the summary directly belonging
+      to the opened <details> rotates.
+    */
+    details > summary::before {
+      content: "▶";
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 11px;
+      transition: transform 0.2s ease;
+    }
+
+    details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-question > div {
+      padding: 12px 8px 4px 18px;
+      color: #333;
+    }
+
+    .faq-question p {
+      margin: 0 0 14px 0;
+    }
+
+    .faq-question p:last-child {
+      margin-bottom: 0;
+    }
   </style>
 </head>
+
 <body>
 <div>
+
+  <!-- Header -->
   <div style="background:#002D72;color:#fff;padding:20px 22px;border-radius:10px 10px 0 0;border-bottom:4px solid #68ACE5;">
     <table style="width:100%;border:0;border-collapse:collapse;background:transparent;">
       <tr>
         <td style="width:62px;border:0;background:transparent;padding:0;vertical-align:middle;">
-          <img class="shield" src="assets/shield.svg" alt="Johns Hopkins University Shield" width="50" height="54" />
+          <img
+            class="shield"
+            src="assets/shield.svg"
+            alt="Johns Hopkins University Shield"
+            width="50"
+            height="54"
+          />
         </td>
+
         <td style="border:0;background:transparent;padding:0;vertical-align:middle;">
-          <h1 style="margin:0 0 4px 0;font-size:24px;line-height:1.2;color:#fff;">ME FAQs & Advising Guide</h1>
-          <p style="margin:0;font-size:14px;color:#fff;">Mechanical Engineering • Johns Hopkins Engineering for Professionals</p>
+          <h1 style="margin:0 0 4px 0;font-size:24px;line-height:1.2;color:#fff;">
+            ME FAQs & Advising Guide
+          </h1>
+
+          <p style="margin:0;font-size:14px;color:#fff;">
+            Mechanical Engineering • Johns Hopkins Engineering for Professionals
+          </p>
         </td>
       </tr>
     </table>
   </div>
 
+
+  <!-- Navigation -->
   <div style="margin:16px 0 22px 0;">
     <table style="width:100%;border:0;border-collapse:collapse;background:transparent;">
       <tr>
-        <td style="width:25%;padding:6px;border:0;background:transparent;"><a class="btn btn-nav" href="index.html">Home</a></td>
-        <td style="width:25%;padding:6px;border:0;background:transparent;"><a class="btn btn-nav" href="focus.html">Focus Areas</a></td>
-        <td style="width:25%;padding:6px;border:0;background:transparent;"><a class="btn btn-nav active" href="faqs.html" aria-current="page">FAQs</a></td>
-        <td style="width:25%;padding:6px;border:0;background:transparent;"><a class="btn btn-nav" href="forms.html">Contacts &amp; Forms</a></td>
+        <td style="width:25%;padding:6px;border:0;background:transparent;">
+          <a class="btn btn-nav" href="index.html">Home</a>
+        </td>
+
+        <td style="width:25%;padding:6px;border:0;background:transparent;">
+          <a class="btn btn-nav" href="focus.html">Focus Areas</a>
+        </td>
+
+        <td style="width:25%;padding:6px;border:0;background:transparent;">
+          <a class="btn btn-nav active" href="faqs.html" aria-current="page">FAQs</a>
+        </td>
+
+        <td style="width:25%;padding:6px;border:0;background:transparent;">
+          <a class="btn btn-nav" href="forms.html">Forms & Contacts</a>
+        </td>
       </tr>
     </table>
   </div>
 
+
+  <!-- Intro -->
   <div style="background:#f5f7fa;padding:18px 20px;border-radius:8px;margin-bottom:24px;border-left:5px solid #002D72;">
-    <p style="margin:0 0 8px 0;"><strong>Have a question about planning your Mechanical Engineering degree?</strong></p>
-    <p style="margin:0;">Browse the questions below for guidance on course planning, registration, focus areas, academic resources, and graduation. When a question involves an official policy or deadline, use the linked EP resource for the most current information.</p>
+    <p style="margin:0 0 8px 0;">
+      <strong>Have a question about planning your Mechanical Engineering degree?</strong>
+    </p>
+
+    <p style="margin:0;">
+      Browse the questions below for guidance on course planning, registration, focus areas,
+      academic resources, and graduation. When a question involves an official policy or
+      deadline, use the linked EP resource for the most current information.
+    </p>
   </div>
 
-  <details class="faq-category">
+
+  <!-- ========================================================= -->
+  <!-- DEGREE PLANNING & FOCUS AREAS -->
+  <!-- ========================================================= -->
+
+  <details class="faq-category" name="faq-category-group">
     <summary>Degree Planning & Focus Areas</summary>
+
     <div class="faq-category-content">
 
-  <details>
-    <summary>Do I need to declare a Mechanical Engineering focus area?</summary>
-    <div>Yes. Students should complete the <a href="https://forms.cloud.microsoft/r/LrUqAbByZ4" target="_blank" rel="noopener">Mechanical Engineering Focus Area Track Declaration</a> when beginning to plan their coursework. Use the <a href="focus.html">Focus Areas</a> page to review the available focus areas and related courses.</div>
-  </details>
+      <details class="faq-question" name="degree-planning-group">
+        <summary>Do I need to declare a Mechanical Engineering focus area?</summary>
 
-  <details>
-    <summary>Can I change my focus area later?</summary>
-    <div>Yes. If you are considering changing your focus area, work directly with your academic advisor to review your degree progress and remaining requirements. Your advisor can help determine how a change in focus area may affect your planned coursework and ensure that any necessary adjustments support your academic goals and anticipated graduation timeline.
-</div>
-  </details>
+        <div>
+          <p>
+            Yes. Students should complete the
+            <a
+              href="https://forms.cloud.microsoft/r/LrUqAbByZ4"
+              target="_blank"
+              rel="noopener"
+            >Mechanical Engineering Focus Area Track Declaration</a>
+            when beginning to plan their coursework.
+          </p>
 
-  <details>
-    <summary>How do I know which courses count toward my focus area?</summary>
-    <p style="margin: 0 0 14px 0;"> Start by reviewing the <a href="https://ep-meche.github.io/ep-meche-hub/focus.html">Focus Areas</a> page and the course map provided for your selected focus area. These resources can help you identify courses that align with your focus area and plan your path through the program.
-</p>
+          <p>
+            Review the
+            <a href="focus.html">Focus Areas</a>
+            page to explore the available focus areas, course maps, and related coursework.
+          </p>
+        </div>
+      </details>
 
-    <p style="margin: 0;"> Work with your academic advisor to develop a course plan that supports your academic and professional goals while keeping you on track for graduation. Be sure to verify the official <a href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/">Degree Requirements</a> applicable to your catalog year when making course selections.
-</p>
-  </details>
 
-  <details>
-    <summary>Is 535.641 Mathematical Methods for Engineers required in the first semester?</summary>
-    <div>535.641 Mathematical Methods for Engineers is a core mathematics course (3 credits) required to be taken first by all students.</div>
-  </details>
+      <details class="faq-question" name="degree-planning-group">
+        <summary>Can I change my focus area later?</summary>
+
+        <div>
+          <p>
+            Yes. If you are considering changing your focus area, work directly with your
+            academic advisor to review your degree progress and remaining requirements.
+          </p>
+
+          <p>
+            Your advisor can help determine how a change in focus area may affect your
+            planned coursework and ensure that any necessary adjustments support your
+            academic goals and anticipated graduation timeline.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="degree-planning-group">
+        <summary>How do I know which courses count toward my focus area?</summary>
+
+        <div>
+          <p>
+            Start by reviewing the
+            <a href="focus.html">Focus Areas</a>
+            page and the course map provided for your selected focus area. These resources
+            can help you identify courses that align with your focus area and plan your path
+            through the program.
+          </p>
+
+          <p>
+            Work with your academic advisor to develop a course plan that supports your
+            academic and professional goals while keeping you on track for graduation.
+            Be sure to verify the official
+            <a
+              href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/"
+              target="_blank"
+              rel="noopener"
+            >Degree Requirements</a>
+            applicable to your catalog year when making course selections.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="degree-planning-group">
+        <summary>How many courses are required for the master's degree?</summary>
+
+        <div>
+          <p>
+            Review the current
+            <a
+              href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/"
+              target="_blank"
+              rel="noopener"
+            >Degree Requirements</a>
+            page for the official requirements applicable to your catalog year.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="degree-planning-group">
+        <summary>Is 535.641 Mathematical Methods for Engineers required in the first semester?</summary>
+
+        <div>
+          <p>
+            535.641 Mathematical Methods for Engineers is commonly used in early degree
+            planning, but students should follow their individual degree plan and advising
+            guidance that applies to their situation.
+          </p>
+
+          <p>
+            Review the
+            <a
+              href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/"
+              target="_blank"
+              rel="noopener"
+            >Degree Requirements</a>
+            page and your degree audit to confirm what is required for your program.
+          </p>
+        </div>
+      </details>
+
     </div>
   </details>
 
-  <details class="faq-category">
+
+  <!-- ========================================================= -->
+  <!-- COURSES & REGISTRATION -->
+  <!-- ========================================================= -->
+
+  <details class="faq-category" name="faq-category-group">
     <summary>Courses & Registration</summary>
+
     <div class="faq-category-content">
 
-  <details>
-    <summary>How do I register for courses?</summary>
-    <div>Check the <a href="https://ep.jhu.edu/student-services/academic-calendar/" target="_blank" rel="noopener">Academic Calendar</a> for registration dates, then register through <a href="https://sis.jhu.edu/" target="_blank" rel="noopener">SIS</a>.</div>
-  </details>
+      <details class="faq-question" name="course-registration-group">
+        <summary>How do I register for courses?</summary>
 
-<details>
-  <summary>Where can I see which courses are offered in an upcoming semester?</summary>
-  <div>
-    <p style="margin: 0 0 14px 0;">
-      Use the 
-      <a href="https://ep.jhu.edu/wp-content/uploads/2020/09/scheduleplan-me.pdf" target="_blank" rel="noopener">Course Offering Schedule</a>
-      to plan your coursework across future semesters.
-    </p>
+        <div>
+          <p>
+            Check the
+            <a
+              href="https://ep.jhu.edu/student-services/academic-calendar/"
+              target="_blank"
+              rel="noopener"
+            >Academic Calendar</a>
+            for registration dates, then register through
+            <a
+              href="https://sis.jhu.edu/"
+              target="_blank"
+              rel="noopener"
+            >SIS</a>.
+          </p>
+        </div>
+      </details>
 
-    <p style="margin: 0;">
-      When preparing to register, use the 
-      <a href="https://ep.jhu.edu/courses/" target="_blank" rel="noopener">EP Courses</a>
-      page to view current course offerings, schedules, and available sections. Course offerings are subject to change, so be sure to review the EP Courses page when planning your registration for an upcoming semester.
-    </p>
-  </div>
-</details>
 
-  <details>
-    <summary>Is the Course Offering Schedule guaranteed?</summary>
-    <div>No. The Course Offering Schedule is intended as a planning resource. Course offerings may change, so students should verify the official schedule in <a href="https://sis.jhu.edu/" target="_blank" rel="noopener">SIS</a> when planning registration for a specific semester.</div>
-  </details>
+      <details class="faq-question" name="course-registration-group">
+        <summary>Where can I see which courses are offered in an upcoming semester?</summary>
 
-  <details>
-    <summary>What should I do if a course I want is full?</summary>
-    <div>Check <a href="https://sis.jhu.edu/" target="_blank" rel="noopener">SIS</a> for current enrollment information and any available registration options. If you still need assistance, use the <a href="forms.html">Forms & Contacts</a> page to determine the appropriate contact.</div>
-  </details>
+        <div>
+          <p>
+            Use the
+            <a
+              href="https://ep.jhu.edu/wp-content/uploads/2020/09/scheduleplan-me.pdf"
+              target="_blank"
+              rel="noopener"
+            >Course Offering Schedule</a>
+            to plan your coursework across future semesters.
+          </p>
 
-  <details>
-    <summary>What if SIS will not let me register?</summary>
-    <div>For enrollment or account-management issues, use <a href="https://support.sis.jhu.edu/case-home" target="_blank" rel="noopener">Student Case Management</a>. This is the appropriate starting point for many SIS, enrollment, and account-related questions.</div>
-  </details>
+          <p>
+            When preparing to register, use the
+            <a
+              href="https://ep.jhu.edu/courses/"
+              target="_blank"
+              rel="noopener"
+            >EP Courses</a>
+            page to view current course offerings, schedules, and available sections.
+            Course offerings are subject to change, so be sure to review the EP Courses
+            page when planning your registration for an upcoming semester.
+          </p>
+        </div>
+      </details>
 
-  <details>
-    <summary>Can I take courses outside of Mechanical Engineering?</summary>
-    <div>Review the published <a href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/" target="_blank" rel="noopener">Degree Requirements</a> before planning courses outside the program. If you are unsure whether a course can be applied to your degree, contact the program team before registering.</div>
-  </details>
+
+      <details class="faq-question" name="course-registration-group">
+        <summary>Is the Course Offering Schedule guaranteed?</summary>
+
+        <div>
+          <p>
+            No. The Course Offering Schedule is intended as a planning resource and may
+            change based on program scheduling needs.
+          </p>
+
+          <p>
+            Be sure to review the
+            <a
+              href="https://ep.jhu.edu/courses/"
+              target="_blank"
+              rel="noopener"
+            >EP Courses</a>
+            page for current offerings when preparing to register.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="course-registration-group">
+        <summary>What should I do if a course I want is full?</summary>
+
+        <div>
+          <p>
+            Review the
+            <a
+              href="https://ep.jhu.edu/courses/"
+              target="_blank"
+              rel="noopener"
+            >EP Courses</a>
+            page for current course availability and registration information.
+          </p>
+
+          <p>
+            If you still need assistance, use the
+            <a href="forms.html">Forms & Contacts</a>
+            page to determine the appropriate resource for your question.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="course-registration-group">
+        <summary>What if SIS will not let me register?</summary>
+
+        <div>
+          <p>
+            For enrollment or account-management issues, use
+            <a
+              href="https://support.sis.jhu.edu/case-home"
+              target="_blank"
+              rel="noopener"
+            >Student Case Management</a>.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="course-registration-group">
+        <summary>Can I take courses outside of Mechanical Engineering?</summary>
+
+        <div>
+          <p>
+            Review the published
+            <a
+              href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/"
+              target="_blank"
+              rel="noopener"
+            >Degree Requirements</a>
+            before planning courses outside the program.
+          </p>
+
+          <p>
+            If you are unsure whether a course can be applied to your degree, consult
+            with your academic advisor before registering.
+          </p>
+        </div>
+      </details>
+
     </div>
   </details>
 
-  <details class="faq-category">
+
+  <!-- ========================================================= -->
+  <!-- ACADEMIC POLICIES & RESOURCES -->
+  <!-- ========================================================= -->
+
+  <details class="faq-category" name="faq-category-group">
     <summary>Academic Policies & Resources</summary>
+
     <div class="faq-category-content">
 
-  <details>
-    <summary>Where can I find EP academic policies?</summary>
-    <div>See <a href="https://ep.jhu.edu/student-services/academic-services/academic-policies/" target="_blank" rel="noopener">EP Academic Policies</a> for the current university guidance and requirements.</div>
-  </details>
+      <details class="faq-question" name="academic-resources-group">
+        <summary>Where can I find EP academic policies?</summary>
 
-  <details>
-    <summary>Where can I find the current EP academic catalog?</summary>
-    <div>Visit <a href="https://ep.jhu.edu/student-services/academic-catalogs/" target="_blank" rel="noopener">EP Academic Catalogs</a> for current and prior catalog information.</div>
-  </details>
+        <div>
+          <p>
+            See
+            <a
+              href="https://ep.jhu.edu/student-services/academic-services/academic-policies/"
+              target="_blank"
+              rel="noopener"
+            >EP Academic Policies</a>
+            for current university guidance and requirements.
+          </p>
+        </div>
+      </details>
 
-  <details>
-    <summary>Where can I find important dates and deadlines?</summary>
-    <div>Use the <a href="https://ep.jhu.edu/student-services/academic-calendar/" target="_blank" rel="noopener">EP Academic Calendar</a> for registration, academic, and other important deadlines.</div>
-  </details>
 
-  <details>
-    <summary>Where can I find my degree audit?</summary>
-    <div>Use <a href="https://stellic.jhu.edu/" target="_blank" rel="noopener">Stellic</a> to review your degree audit and monitor your academic progress.</div>
-  </details>
+      <details class="faq-question" name="academic-resources-group">
+        <summary>Where can I find the current EP academic catalog?</summary>
+
+        <div>
+          <p>
+            Visit
+            <a
+              href="https://ep.jhu.edu/student-services/academic-catalogs/"
+              target="_blank"
+              rel="noopener"
+            >EP Academic Catalogs</a>
+            for current and prior catalog information.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="academic-resources-group">
+        <summary>Where can I find important dates and deadlines?</summary>
+
+        <div>
+          <p>
+            Use the
+            <a
+              href="https://ep.jhu.edu/student-services/academic-calendar/"
+              target="_blank"
+              rel="noopener"
+            >EP Academic Calendar</a>
+            for registration, academic, and other important deadlines.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="academic-resources-group">
+        <summary>Where can I find my degree audit?</summary>
+
+        <div>
+          <p>
+            Use
+            <a
+              href="https://stellic.jhu.edu/"
+              target="_blank"
+              rel="noopener"
+            >Stellic</a>
+            to review your degree audit and monitor your academic progress.
+          </p>
+        </div>
+      </details>
+
     </div>
   </details>
 
-  <details class="faq-category">
+
+  <!-- ========================================================= -->
+  <!-- THESIS / INDEPENDENT STUDY -->
+  <!-- ========================================================= -->
+
+  <details class="faq-category" name="faq-category-group">
     <summary>Thesis, Independent Study & Special Planning</summary>
+
     <div class="faq-category-content">
 
-  <details>
-    <summary>Can I complete a thesis as part of my master's degree?</summary>
-    <div>Review the current Mechanical Engineering degree requirements and thesis guidance before making this decision. Use the program's advising resources for questions about eligibility, planning, and registration.</div>
-  </details>
+      <details class="faq-question" name="special-planning-group">
+        <summary>Can I complete a thesis as part of my master's degree?</summary>
 
-  <details>
-    <summary>How do I get started with a thesis?</summary>
-    <div>Begin by reviewing the program's thesis guidance and determining whether a thesis fits your academic goals and degree plan. Contact the appropriate faculty or program resource through <a href="forms.html">Forms & Contacts</a> for next steps.</div>
-  </details>
+        <div>
+          <p>
+            Review the current Mechanical Engineering degree requirements and available
+            thesis guidance before making this decision.
+          </p>
 
-  <details>
-    <summary>What is an Independent Study?</summary>
-    <div>An Independent Study is a faculty-supervised academic experience built around an approved topic or area of study. Students should work with the appropriate faculty member and confirm the registration and approval process before enrolling.</div>
-  </details>
+          <p>
+            Work with your academic advisor to determine how a thesis would fit within
+            your overall degree plan and anticipated graduation timeline.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="special-planning-group">
+        <summary>How do I get started with a thesis?</summary>
+
+        <div>
+          <p>
+            Begin by reviewing the program's thesis guidance and discussing your plans
+            with your academic advisor.
+          </p>
+
+          <p>
+            Your advisor can help you understand how the thesis fits into your degree
+            requirements and identify the appropriate next steps.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="special-planning-group">
+        <summary>What is an Independent Study?</summary>
+
+        <div>
+          <p>
+            An Independent Study is a faculty-supervised academic experience built around
+            an approved topic or area of study.
+          </p>
+
+          <p>
+            Students should work with the appropriate faculty member and confirm the
+            registration and approval process before enrolling.
+          </p>
+        </div>
+      </details>
+
     </div>
   </details>
 
-  <details class="faq-category">
+
+  <!-- ========================================================= -->
+  <!-- GRADUATION & STUDENT SUPPORT -->
+  <!-- ========================================================= -->
+
+  <details class="faq-category" name="faq-category-group">
     <summary>Graduation & Student Support</summary>
+
     <div class="faq-category-content">
 
-  <details>
-    <summary>How do I apply for graduation?</summary>
-    <div>Use the <a href="https://ep.jhu.edu/current-students/graduation-information/" target="_blank" rel="noopener">EP Graduation Information</a> page for application instructions and current graduation guidance.</div>
-  </details>
+      <details class="faq-question" name="student-support-group">
+        <summary>How do I apply for graduation?</summary>
 
-  <details>
-    <summary>Who should I contact if I have a question about my degree plan?</summary>
-    <div>Start with the <a href="forms.html">Forms & Contacts</a> page to identify the appropriate program or academic resource. You can also review your <a href="https://stellic.jhu.edu/" target="_blank" rel="noopener">Stellic degree audit</a> and the official <a href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/" target="_blank" rel="noopener">Degree Requirements</a> page before reaching out.</div>
-  </details>
+        <div>
+          <p>
+            Use the
+            <a
+              href="https://ep.jhu.edu/current-students/graduation-information/"
+              target="_blank"
+              rel="noopener"
+            >EP Graduation Information</a>
+            page for application instructions and current graduation guidance.
+          </p>
+        </div>
+      </details>
 
-  <details>
-    <summary>Where can I connect with other Mechanical Engineering students?</summary>
-    <div>Join the <a href="https://www.linkedin.com/groups/13042174/" target="_blank" rel="noopener">Mechanical Engineering LinkedIn group</a> to connect with fellow students and stay engaged with the broader program community.</div>
-  </details>
+
+      <details class="faq-question" name="student-support-group">
+        <summary>Who should I contact if I have a question about my degree plan?</summary>
+
+        <div>
+          <p>
+            Start with the
+            <a href="forms.html">Forms & Contacts</a>
+            page to identify the appropriate program or academic resource.
+          </p>
+
+          <p>
+            You can also review your
+            <a
+              href="https://stellic.jhu.edu/"
+              target="_blank"
+              rel="noopener"
+            >Stellic degree audit</a>
+            and the official
+            <a
+              href="https://ep.jhu.edu/programs/mechanical-engineering/masters-degree-requirements/"
+              target="_blank"
+              rel="noopener"
+            >Degree Requirements</a>
+            page before reaching out.
+          </p>
+        </div>
+      </details>
+
+
+      <details class="faq-question" name="student-support-group">
+        <summary>Where can I connect with other Mechanical Engineering students?</summary>
+
+        <div>
+          <p>
+            Join the
+            <a
+              href="https://www.linkedin.com/groups/13042174/"
+              target="_blank"
+              rel="noopener"
+            >Mechanical Engineering LinkedIn group</a>
+            to connect with fellow students and stay engaged with the broader program community.
+          </p>
+        </div>
+      </details>
+
     </div>
   </details>
 
+
+  <!-- Still Have a Question -->
   <div style="background:#e8eef5;padding:16px 18px;border-radius:8px;margin-top:28px;">
-    <p style="margin:0 0 6px 0;"><strong>Still have a question?</strong></p>
-    <p style="margin:0;">Visit <a href="forms.html">Forms & Contacts</a> to find the appropriate resource for your question.</p>
+    <p style="margin:0 0 6px 0;">
+      <strong>Still have a question?</strong>
+    </p>
+
+    <p style="margin:0;">
+      Visit
+      <a href="forms.html">Forms & Contacts</a>
+      to find the appropriate resource for your question.
+    </p>
   </div>
 
-  <p style="margin-top:24px;font-size:13px;color:#666;text-align:center;">Johns Hopkins Whiting School of Engineering • Engineering for Professionals</p>
+
+  <!-- Footer -->
+  <p style="margin-top:24px;font-size:13px;color:#666;text-align:center;">
+    Johns Hopkins Whiting School of Engineering • Engineering for Professionals
+  </p>
+
 </div>
+
+
+<!-- ========================================================= -->
+<!-- ACCORDION SCRIPT -->
+<!-- ========================================================= -->
+
+<script>
+  /*
+    Ensure only one FAQ category can be open at a time.
+    Also ensure only one question within a category can be
+    open at a time.
+  */
+
+  document.querySelectorAll('details.faq-category').forEach(function(category) {
+    category.addEventListener('toggle', function() {
+      if (!category.open) return;
+
+      document.querySelectorAll('details.faq-category').forEach(function(otherCategory) {
+        if (otherCategory !== category) {
+          otherCategory.removeAttribute('open');
+        }
+      });
+    });
+  });
+
+
+  document.querySelectorAll('details.faq-question').forEach(function(question) {
+    question.addEventListener('toggle', function() {
+      if (!question.open) return;
+
+      var parentCategory = question.closest('.faq-category');
+
+      if (!parentCategory) return;
+
+      parentCategory.querySelectorAll('details.faq-question').forEach(function(otherQuestion) {
+        if (otherQuestion !== question) {
+          otherQuestion.removeAttribute('open');
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
