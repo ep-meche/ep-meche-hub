@@ -90,6 +90,14 @@
     .faq-question p:last-child {
       margin-bottom: 0;
     }
+    /* Correct nested FAQ chevron behavior */
+details > summary::before {
+  transform: rotate(0deg) !important;
+}
+
+details[open] > summary::before {
+  transform: rotate(90deg) !important;
+}
   </style>
 </head>
 
