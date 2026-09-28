@@ -688,26 +688,51 @@ details[open] > summary::before {
 
 <script>
   /*
-    Ensure only one FAQ category can be open at a time.
-    Also ensure only one question within a category can be
-    open at a time.
+    FAQ accordion behavior:
+    - Only one main category can be open at a time.
+    - Only one question within a category can be open at a time.
+    - When a category closes, all questions inside that category also close.
   */
 
   document.querySelectorAll('details.faq-category').forEach(function(category) {
-    category.addEventListener('toggle', function() {
-      if (!category.open) return;
 
+    category.addEventListener('toggle', function() {
+
+      if (!category.open) {
+        // Close all questions inside this category
+        category.querySelectorAll('details.faq-question').forEach(function(question) {
+          question.removeAttribute('open');
+        });
+
+        return;
+      }
+
+      // Close all other categories
       document.querySelectorAll('details.faq-category').forEach(function(otherCategory) {
+
         if (otherCategory !== category) {
+
+          // Close all questions inside the other category first
+          otherCategory.querySelectorAll('details.faq-question').forEach(function(question) {
+            question.removeAttribute('open');
+          });
+
+          // Then close the other category
           otherCategory.removeAttribute('open');
         }
+
       });
+
     });
+
   });
 
 
+  // Only one question can be open within a category
   document.querySelectorAll('details.faq-question').forEach(function(question) {
+
     question.addEventListener('toggle', function() {
+
       if (!question.open) return;
 
       var parentCategory = question.closest('.faq-category');
@@ -715,11 +740,15 @@ details[open] > summary::before {
       if (!parentCategory) return;
 
       parentCategory.querySelectorAll('details.faq-question').forEach(function(otherQuestion) {
+
         if (otherQuestion !== question) {
           otherQuestion.removeAttribute('open');
         }
+
       });
+
     });
+
   });
 </script>
 
