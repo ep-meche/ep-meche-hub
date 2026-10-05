@@ -209,5 +209,19 @@
 
   <p style="margin-top: 24px; font-size: 13px; color: #666; text-align: center;">Johns Hopkins Whiting School of Engineering • Engineering for Professionals</p>
 </div>
+  <script>
+  // Allow only one focus area to be open at a time
+  document.querySelectorAll('details').forEach(function(focusArea) {
+    focusArea.addEventListener('toggle', function() {
+      if (!focusArea.open) return;
+
+      document.querySelectorAll('details').forEach(function(otherFocusArea) {
+        if (otherFocusArea !== focusArea) {
+          otherFocusArea.removeAttribute('open');
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
